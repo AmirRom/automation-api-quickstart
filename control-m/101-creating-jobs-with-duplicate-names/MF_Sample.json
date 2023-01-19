@@ -1,0 +1,39 @@
+{
+  "MF_SAMP" : {
+    "Type" : "SimpleFolder",
+    "ControlmServer" : "<ctm>",
+    "FolderLibrary" : "<FolderLibrary>",
+    "OrderMethod" : "Manual",
+    "Jobs" : [ {
+      "Type" : "Job:zOS:InStreamJCL",
+      "JCL" : "//AUTEST0 JOB ,ASM,CLASS=A,REGION=0M\\n// JCLLIB ORDER=IOAQ.AAPI#AU.PROCLIB\\n// INCLUDE MEMBER=IOASET\\n//S1 EXEC IOATEST,PARM='TERM=C0000'",
+      "CreatedBy" : "emuser",
+      "RunOnAllAgentsInGroup" : true,
+      "RunAs" : "emuser",
+      "Name" : "MF_JOB",
+      "When" : {
+        "WeekDays" : [ "NONE" ],
+        "MonthDays" : [ "ALL" ],
+        "DaysRelation" : "OR"
+      },
+      "Archiving" : {
+        "ArchiveSysData" : true
+      }
+    }, {
+      "Type" : "Job:zOS:InStreamJCL",
+      "JCL" : "//AUTEST0 JOB ,ASM,CLASS=A,REGION=0M\\n// JCLLIB ORDER=IOAQ.AAPI#AU.PROCLIB\\n// INCLUDE MEMBER=IOASET\\n//S1 EXEC IOATEST,PARM='TERM=C0000'",
+      "CreatedBy" : "emuser",
+      "RunOnAllAgentsInGroup" : true,
+      "RunAs" : "emuser",
+      "Name" : "MF_JOB",
+      "When" : {
+        "WeekDays" : [ "NONE" ],
+        "MonthDays" : [ "ALL" ],
+        "DaysRelation" : "OR"
+      },
+      "Archiving" : {
+        "ArchiveSysData" : true
+      }
+    } ]
+  }
+}

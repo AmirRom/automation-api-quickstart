@@ -1,0 +1,46 @@
+{
+  "Sample_DS" : {
+    "Type" : "Folder",
+    "ControlmServer" : "<ctm>",
+    "ActiveRetentionPolicy" : "CleanEndedOK",
+    "CreatedBy" : "emuser",
+    "Jobs" : [ {
+      "Type" : "Job:Command",
+      "CreatedBy" : "emuser",
+      "RunAs" : "dbauser",
+      "Command" : "echo \"1\"",
+      "Name" : "JobCommand",
+      "When" : {
+        "WeekDays" : [ "NONE" ],
+        "MonthDays" : [ "ALL" ],
+        "DaysRelation" : "OR"
+      },
+      "Output" : { }
+    }, {
+      "Type" : "Job:Command",
+      "CreatedBy" : "emuser",
+      "RunAs" : "dbauser",
+      "Command" : "echo \"2\"",
+      "Name" : "JobCommand",
+      "When" : {
+        "WeekDays" : [ "NONE" ],
+        "MonthDays" : [ "ALL" ],
+        "DaysRelation" : "OR"
+      },
+      "Output" : { }
+    } ],
+    "When" : {
+      "RuleBasedCalendars" : {
+        "Included" : [ "EVERYDAY" ],
+        "EVERYDAY" : {
+          "Type" : "Calendar:RuleBased",
+          "When" : {
+            "DaysRelation" : "OR",
+            "WeekDays" : [ "NONE" ],
+            "MonthDays" : [ "ALL" ]
+          }
+        }
+      }
+    }
+  }
+}
